@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lan Hương · Workbench</title>
-<meta name="description" content="Personal Workbench của Lan Hương — sinh viên Marketing, Trường Đại học Công Thương TP.HCM.">
+<meta name="description" content="Lan Hương's personal Workbench — Marketing student at Ho Chi Minh City University of Industry and Trade (HUIT).">
 <style>
 :root{
   --ink:#2b2522; --ink-soft:#6f645e; --ink-faint:#a0948c;
@@ -50,6 +50,9 @@ section{scroll-margin-top:28px}
 .icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--edge);background:var(--glass-strong);display:grid;place-items:center;cursor:pointer;color:var(--ink-soft);position:relative;transition:transform .2s}
 .icon-btn:hover{transform:translateY(-1px);color:var(--ink)}
 .icon-btn .dot{position:absolute;top:9px;right:10px;width:7px;height:7px;border-radius:50%;background:var(--accent);border:1.5px solid #fff}
+.lang-btn{height:40px;min-width:40px;padding:0 12px;border-radius:999px;border:1px solid var(--edge);background:var(--glass-strong);cursor:pointer;font-size:13px;font-weight:700;color:var(--ink-soft);letter-spacing:.04em}
+.lang-btn:hover{color:var(--ink)}
+.value.empty{font-size:22px;color:var(--ink-faint)}
 .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f6c3c9,#fbd9bf);border:1px solid var(--edge);display:grid;place-items:center;font-weight:700;font-size:15px;color:#8a3b4b}
 
 .greeting{padding:var(--section) 6px 28px}
@@ -164,21 +167,21 @@ section{scroll-margin-top:28px}
 </svg>
 
 <div class="shell">
-  <nav class="side glass" aria-label="Điều hướng">
+  <nav class="side glass" data-i18n-attr="aria-label:navAria" aria-label="Navigation">
     <div class="brand"><span class="mark"><svg class="i"><use href="#i-heart"/></svg></span>Workbench</div>
     <div class="nav-wrap">
-      <div class="nav-label">Thường dùng</div>
+      <div class="nav-label" data-i18n="navMain">Frequently used</div>
       <ul class="nav-list">
-        <li><a href="#tong-quan"><svg class="i"><use href="#i-home"/></svg>Tổng quan</a></li>
-        <li><a href="#ghi-nhanh"><svg class="i"><use href="#i-pen"/></svg>Ghi nhanh</a></li>
-        <li><a href="#chi-so"><svg class="i"><use href="#i-chart"/></svg>Chỉ số</a></li>
-        <li><a href="#viec-can-lam"><svg class="i"><use href="#i-list"/></svg>Việc cần làm</a></li>
+        <li><a href="#tong-quan"><svg class="i"><use href="#i-home"/></svg><span data-i18n="nav_overview">Overview</span></a></li>
+        <li><a href="#ghi-nhanh"><svg class="i"><use href="#i-pen"/></svg><span data-i18n="nav_quick">Quick note</span></a></li>
+        <li><a href="#chi-so"><svg class="i"><use href="#i-chart"/></svg><span data-i18n="nav_metrics">Metrics</span></a></li>
+        <li><a href="#viec-can-lam"><svg class="i"><use href="#i-list"/></svg><span data-i18n="nav_todo">To-do</span></a></li>
       </ul>
       <div class="divider" role="separator"></div>
-      <div class="nav-label">Khác</div>
+      <div class="nav-label" data-i18n="navOther">More</div>
       <ul class="nav-list">
-        <li><a href="#mon-hoc"><svg class="i"><use href="#i-book"/></svg>Môn học</a></li>
-        <li><a href="#so-thich"><svg class="i"><use href="#i-music"/></svg>Sở thích</a></li>
+        <li><a href="#mon-hoc"><svg class="i"><use href="#i-book"/></svg><span data-i18n="nav_courses">Courses</span></a></li>
+        <li><a href="#so-thich"><svg class="i"><use href="#i-music"/></svg><span data-i18n="nav_hobbies">Hobbies</span></a></li>
       </ul>
     </div>
   </nav>
@@ -186,92 +189,93 @@ section{scroll-margin-top:28px}
   <main>
     <section id="tong-quan" class="enter">
       <header class="topbar glass">
-        <div class="date" id="today">Hôm nay</div>
+        <div class="date" id="today">Today</div>
         <div class="tools">
-          <button class="icon-btn search" type="button" aria-label="Tìm kiếm"><svg class="i"><use href="#i-search"/></svg></button>
-          <button class="icon-btn" type="button" aria-label="Thông báo: 1 deadline sắp tới"><svg class="i"><use href="#i-bell"/></svg><span class="dot"></span></button>
+          <button class="icon-btn search" type="button" data-i18n-attr="aria-label:searchAria" aria-label="Search"><svg class="i"><use href="#i-search"/></svg></button>
+          <button class="icon-btn" type="button" data-i18n-attr="aria-label:bellAria" aria-label="Notifications: 1 upcoming deadline"><svg class="i"><use href="#i-bell"/></svg><span class="dot"></span></button>
+          <button class="lang-btn" id="lang" type="button" aria-label="Tiếng Việt">VI</button>
           <div class="avatar" aria-label="Lan Hương">LH</div>
         </div>
       </header>
       <div class="greeting">
-        <h1 id="hello">Chào Lan Hương</h1>
-        <p>Sinh viên <b>Marketing</b>, Trường Đại học Công Thương TP.HCM. Bật một playlist nhẹ nhàng, làm từng việc nhỏ thôi — cuối tuần còn hẹn đi chơi với bạn bè nữa mà.</p>
+        <h1 id="hello">Hi, Lan Hương</h1>
+        <p data-i18n="intro"><b>Marketing</b> student at Ho Chi Minh City University of Industry and Trade (HUIT). Put on a calm playlist and take things one small task at a time — there are weekend plans with friends to look forward to.</p>
       </div>
     </section>
 
     <section id="ghi-nhanh" class="enter">
       <form class="quick glass" id="quick">
         <svg class="i"><use href="#i-pen"/></svg>
-        <label for="q" style="position:absolute;left:-9999px">Ghi nhanh</label>
-        <input id="q" autocomplete="off" placeholder="Ghi deadline · Ghi chi tiêu · Viết ý tưởng content">
-        <button class="plus" type="submit" aria-label="Thêm"><svg class="i"><use href="#i-plus"/></svg></button>
+        <label for="q" style="position:absolute;left:-9999px" data-i18n="nav_quick">Quick note</label>
+        <input id="q" autocomplete="off" data-i18n-attr="placeholder:qPh" placeholder="Log a deadline · Log spending · Write a content idea">
+        <button class="plus" type="submit" data-i18n-attr="aria-label:addAria" aria-label="Add"><svg class="i"><use href="#i-plus"/></svg></button>
       </form>
-      <div class="chips" role="group" aria-label="Loại ghi chú">
-        <button class="chip" type="button" aria-pressed="true" data-kind="Deadline">Ghi deadline</button>
-        <button class="chip" type="button" aria-pressed="false" data-kind="Chi tiêu">Ghi chi tiêu</button>
-        <button class="chip" type="button" aria-pressed="false" data-kind="Ý tưởng">Viết ý tưởng content</button>
+      <div class="chips" role="group" data-i18n-attr="aria-label:kindAria" aria-label="Note type">
+        <button class="chip" type="button" aria-pressed="true" data-kind="deadline" data-i18n="chipDeadline">Log a deadline</button>
+        <button class="chip" type="button" aria-pressed="false" data-kind="spend" data-i18n="chipSpend">Log spending</button>
+        <button class="chip" type="button" aria-pressed="false" data-kind="idea" data-i18n="chipIdea">Write a content idea</button>
       </div>
       <ul class="notes" id="notes" aria-live="polite"></ul>
     </section>
 
     <section id="chi-so">
-      <div class="sec-head"><h2>Chỉ số đang theo dõi</h2><span>Hôm nay / mục tiêu</span></div>
+      <div class="sec-head"><h2 data-i18n="mTitle">Numbers I track</h2><span data-i18n="mSub">Today / target</span></div>
       <div class="grid enter">
         <article class="card glass">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span>Giờ học hôm nay</div></div>
-          <div class="value">3<small>/ 4 giờ</small></div>
-          <div class="bar"><i style="width:75%"></i></div>
-          <p class="card-note">Học trên lớp cộng tự học buổi tối.</p>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><span data-i18n="mHours">Study hours today</span></div></div>
+          <div class="value empty" data-i18n="noData">No data yet</div>
+          <div class="bar"><i style="width:0"></i></div>
+          <p class="card-note" data-i18n="mHoursN">Class time plus evening self-study.</p>
         </article>
         <article class="card glass">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-send"/></svg></span>Bài tập đã nộp</div></div>
-          <div class="value">4<small>/ 6 bài</small></div>
-          <div class="bar"><i style="width:67%"></i></div>
-          <p class="card-note">Còn 2 bài thu hoạch khoá AI, hạn 07/11.</p>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-send"/></svg></span><span data-i18n="mHw">Assignments submitted</span></div></div>
+          <div class="value empty" data-i18n="noData">No data yet</div>
+          <div class="bar"><i style="width:0"></i></div>
+          <p class="card-note" data-i18n="mHwN">Includes the 2 AI course assignments due 07/11.</p>
         </article>
         <article class="card glass">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-book"/></svg></span>Sách Marketing</div></div>
-          <div class="value">45<small>/ 80 trang tuần</small></div>
-          <div class="bar"><i style="width:56%"></i></div>
-          <p class="card-note">Mỗi tối đọc một ít trước khi ngủ.</p>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-book"/></svg></span><span data-i18n="mBook">Marketing reading</span></div></div>
+          <div class="value empty" data-i18n="noData">No data yet</div>
+          <div class="bar"><i style="width:0"></i></div>
+          <p class="card-note" data-i18n="mBookN">A little every night before bed.</p>
         </article>
         <article class="card glass">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-wallet"/></svg></span>Tiết kiệm</div></div>
-          <div class="value">600k<small>/ 1 triệu tháng</small></div>
-          <div class="bar"><i style="width:60%"></i></div>
-          <p class="card-note">Bớt trà sữa để dành tiền đi chơi cuối tháng.</p>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-wallet"/></svg></span><span data-i18n="mSave">Savings</span></div></div>
+          <div class="value empty" data-i18n="noData">No data yet</div>
+          <div class="bar"><i style="width:0"></i></div>
+          <p class="card-note" data-i18n="mSaveN">Fewer bubble teas, more for the end-of-month trip.</p>
         </article>
       </div>
     </section>
 
     <section id="mo-dun">
-      <div class="sec-head"><h2>Tuần này của mình</h2><span>Bấm ô vuông để đánh dấu xong</span></div>
+      <div class="sec-head"><h2 data-i18n="wTitle">My week</h2><span data-i18n="wSub">Tap a box to mark it done</span></div>
       <div class="grid enter">
         <article class="card glass wide" id="viec-can-lam">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-flag"/></svg></span>Việc cần làm tuần này</div><span class="pct" id="done-count">0/3 xong</span></div>
-          <p class="card-note">Những việc phải xong trước Chủ nhật.</p>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-flag"/></svg></span><span data-i18n="todoTitle">This week's to-do</span></div><span class="pct" id="done-count">0/3 done</span></div>
+          <p class="card-note" data-i18n="todoNote">Things to finish before Sunday.</p>
           <ul class="items" id="todo">
-            <li><button class="check" type="button" aria-pressed="false" aria-label="Đánh dấu xong"><svg class="i"><use href="#i-tick"/></svg></button><span>Nộp 2 bài thu hoạch khoá AI trước 20:00 thứ Bảy 07/11</span></li>
-            <li><button class="check" type="button" aria-pressed="false" aria-label="Đánh dấu xong"><svg class="i"><use href="#i-tick"/></svg></button><span>Làm slide thuyết trình nhóm</span></li>
-            <li><button class="check" type="button" aria-pressed="false" aria-label="Đánh dấu xong"><svg class="i"><use href="#i-tick"/></svg></button><span>Ôn bài giữa kỳ môn chuyên ngành</span></li>
+            <li><button class="check" type="button" aria-pressed="false" data-i18n-attr="aria-label:checkAria" aria-label="Mark as done"><svg class="i"><use href="#i-tick"/></svg></button><span data-i18n="t1">Submit the 2 AI course assignments by 20:00 Saturday 07/11</span></li>
+            <li><button class="check" type="button" aria-pressed="false" data-i18n-attr="aria-label:checkAria" aria-label="Mark as done"><svg class="i"><use href="#i-tick"/></svg></button><span data-i18n="t2">Make the group presentation slides</span></li>
+            <li><button class="check" type="button" aria-pressed="false" data-i18n-attr="aria-label:checkAria" aria-label="Mark as done"><svg class="i"><use href="#i-tick"/></svg></button><span data-i18n="t3">Revise for the major-subject midterm</span></li>
           </ul>
         </article>
         <article class="card glass" id="mon-hoc">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-book"/></svg></span>Môn học kỳ này</div></div>
-          <p class="card-note">Các môn đang theo, xếp theo độ ưu tiên.</p>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-book"/></svg></span><span data-i18n="cTitle">Courses this semester</span></div></div>
+          <p class="card-note" data-i18n="cNote">Current courses, by priority.</p>
           <ul class="items">
-            <li><span class="n">01</span><span>Nguyên lý Marketing</span></li>
-            <li><span class="n">02</span><span>Hành vi người tiêu dùng</span></li>
-            <li><span class="n">03</span><span>Ứng dụng Công nghệ Thông tin và Truyền thông</span></li>
+            <li><span class="n">01</span><span data-i18n="c1">Principles of Marketing</span></li>
+            <li><span class="n">02</span><span data-i18n="c2">Consumer Behavior</span></li>
+            <li><span class="n">03</span><span data-i18n="c3">Applied Information and Communication Technology</span></li>
           </ul>
         </article>
         <article class="card glass" id="so-thich">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-music"/></svg></span>Sở thích</div></div>
-          <p class="card-note">Những thứ giúp mình nạp lại năng lượng.</p>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-music"/></svg></span><span data-i18n="nav_hobbies">Hobbies</span></div></div>
+          <p class="card-note" data-i18n="hNote">Things that recharge me.</p>
           <ul class="items">
-            <li><span class="n">01</span><span>Playlist nghe trên đường đi học</span></li>
-            <li><span class="n">02</span><span>Cà phê, đi chơi cuối tuần với bạn bè</span></li>
-            <li><span class="n">03</span><span>Lưu lại ý tưởng content hay để học Marketing</span></li>
+            <li><span class="n">01</span><span data-i18n="h1">A playlist for the ride to class</span></li>
+            <li><span class="n">02</span><span data-i18n="h2">Coffee and weekend outings with friends</span></li>
+            <li><span class="n">03</span><span data-i18n="h3">Saving good content ideas to learn Marketing</span></li>
           </ul>
         </article>
       </div>
@@ -279,21 +283,76 @@ section{scroll-margin-top:28px}
   </main>
 </div>
 
-<div class="dock glass" role="toolbar" aria-label="Lối tắt">
-  <button type="button" data-go="mon-hoc"><svg class="i"><use href="#i-cal"/></svg><span><b>Lịch học</b><small>Xem lịch học tuần này</small></span></button>
-  <button type="button" data-go="viec-can-lam"><svg class="i"><use href="#i-flag"/></svg><span><b>Deadline</b><small>Các bài sắp tới hạn nộp</small></span></button>
-  <button type="button" data-go="so-thich"><svg class="i"><use href="#i-music"/></svg><span><b>Playlist</b><small>Mở nhạc để học tập trung</small></span></button>
+<div class="dock glass" role="toolbar" data-i18n-attr="aria-label:dockAria" aria-label="Shortcuts">
+  <button type="button" data-go="mon-hoc"><svg class="i"><use href="#i-cal"/></svg><span><b data-i18n="dSched">Schedule</b><small data-i18n="dSchedN">See this week's classes</small></span></button>
+  <button type="button" data-go="viec-can-lam"><svg class="i"><use href="#i-flag"/></svg><span><b>Deadline</b><small data-i18n="dDeadN">Assignments due soon</small></span></button>
+  <button type="button" data-go="so-thich"><svg class="i"><use href="#i-music"/></svg><span><b>Playlist</b><small data-i18n="dPlayN">Music for focused study</small></span></button>
 </div>
 
 <script>
 (function(){
-  var now = new Date();
-  var days = ["Chủ nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"];
-  document.getElementById("today").textContent =
-    days[now.getDay()] + ", " + now.getDate() + " tháng " + (now.getMonth() + 1) + ", " + now.getFullYear();
-  var h = now.getHours();
-  var part = h < 11 ? "buổi sáng" : h < 14 ? "buổi trưa" : h < 18 ? "buổi chiều" : "buổi tối";
-  document.getElementById("hello").textContent = "Chào " + part + ", Lan Hương";
+  // Language: English is in the markup; Vietnamese strings live here. The button toggles.
+  var VI = {
+    navAria:"Điều hướng", navMain:"Thường dùng", navOther:"Khác",
+    nav_overview:"Tổng quan", nav_quick:"Ghi nhanh", nav_metrics:"Chỉ số", nav_todo:"Việc cần làm", nav_courses:"Môn học", nav_hobbies:"Sở thích",
+    searchAria:"Tìm kiếm", bellAria:"Thông báo: 1 deadline sắp tới",
+    intro:"Sinh viên <b>Marketing</b>, Trường Đại học Công Thương TP.HCM. Bật một playlist nhẹ nhàng, làm từng việc nhỏ thôi — cuối tuần còn hẹn đi chơi với bạn bè nữa mà.",
+    qPh:"Ghi deadline · Ghi chi tiêu · Viết ý tưởng content", addAria:"Thêm", kindAria:"Loại ghi chú",
+    chipDeadline:"Ghi deadline", chipSpend:"Ghi chi tiêu", chipIdea:"Viết ý tưởng content",
+    mTitle:"Chỉ số đang theo dõi", mSub:"Hôm nay / mục tiêu", noData:"Chưa có dữ liệu",
+    mHours:"Giờ học hôm nay", mHoursN:"Học trên lớp cộng tự học buổi tối.",
+    mHw:"Bài tập đã nộp", mHwN:"Tính cả 2 bài thu hoạch khoá AI, hạn 07/11.",
+    mBook:"Sách Marketing", mBookN:"Mỗi tối đọc một ít trước khi ngủ.",
+    mSave:"Tiết kiệm", mSaveN:"Bớt trà sữa để dành tiền đi chơi cuối tháng.",
+    wTitle:"Tuần này của mình", wSub:"Bấm ô vuông để đánh dấu xong",
+    todoTitle:"Việc cần làm tuần này", todoNote:"Những việc phải xong trước Chủ nhật.", checkAria:"Đánh dấu xong",
+    t1:"Nộp 2 bài thu hoạch khoá AI trước 20:00 thứ Bảy 07/11", t2:"Làm slide thuyết trình nhóm", t3:"Ôn bài giữa kỳ môn chuyên ngành",
+    cTitle:"Môn học kỳ này", cNote:"Các môn đang theo, xếp theo độ ưu tiên.",
+    c1:"Nguyên lý Marketing", c2:"Hành vi người tiêu dùng", c3:"Ứng dụng Công nghệ Thông tin và Truyền thông",
+    hNote:"Những thứ giúp mình nạp lại năng lượng.",
+    h1:"Playlist nghe trên đường đi học", h2:"Cà phê, đi chơi cuối tuần với bạn bè", h3:"Lưu lại ý tưởng content hay để học Marketing",
+    dockAria:"Lối tắt", dSched:"Lịch học", dSchedN:"Xem lịch học tuần này", dDeadN:"Các bài sắp tới hạn nộp", dPlayN:"Mở nhạc để học tập trung"
+  };
+  var KIND = {en:{deadline:"Deadline", spend:"Spending", idea:"Idea"}, vi:{deadline:"Deadline", spend:"Chi tiêu", idea:"Ý tưởng"}};
+  var EN = {};
+  var textEls = document.querySelectorAll("[data-i18n]"), attrEls = document.querySelectorAll("[data-i18n-attr]");
+  textEls.forEach(function(el){ EN[el.dataset.i18n] = el.innerHTML; });
+  attrEls.forEach(function(el){ el.dataset.i18nAttr.split(";").forEach(function(pair){
+    var kv = pair.split(":"); EN[kv[1]] = el.getAttribute(kv[0]); }); });
+  var lang = "en";
+  try { var saved = localStorage.getItem("wb-lang"); if (saved === "vi" || saved === "en") lang = saved; } catch (e) {}
+  if (/[?&]lang=vi\b/.test(location.search)) lang = "vi";
+  if (/[?&]lang=en\b/.test(location.search)) lang = "en";
+
+  function today(){
+    var now = new Date(), h = now.getHours(), d = document.getElementById("today"), hi = document.getElementById("hello");
+    if (lang === "vi") {
+      var days = ["Chủ nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"];
+      d.textContent = days[now.getDay()] + ", " + now.getDate() + " tháng " + (now.getMonth() + 1) + ", " + now.getFullYear();
+      hi.textContent = "Chào " + (h < 11 ? "buổi sáng" : h < 14 ? "buổi trưa" : h < 18 ? "buổi chiều" : "buổi tối") + ", Lan Hương";
+    } else {
+      d.textContent = now.toLocaleDateString("en-GB", {weekday:"long", day:"numeric", month:"long", year:"numeric"});
+      hi.textContent = "Good " + (h < 12 ? "morning" : h < 18 ? "afternoon" : "evening") + ", Lan Hương";
+    }
+  }
+  function apply(){
+    var T = lang === "vi" ? VI : EN;
+    document.documentElement.lang = lang;
+    textEls.forEach(function(el){ el.innerHTML = T[el.dataset.i18n]; });
+    attrEls.forEach(function(el){ el.dataset.i18nAttr.split(";").forEach(function(pair){
+      var kv = pair.split(":"); el.setAttribute(kv[0], T[kv[1]]); }); });
+    document.querySelectorAll(".notes .kind").forEach(function(t){ t.textContent = KIND[lang][t.dataset.kind]; });
+    var b = document.getElementById("lang");
+    b.textContent = lang === "vi" ? "EN" : "VI";
+    b.setAttribute("aria-label", lang === "vi" ? "Switch to English" : "Chuyển sang tiếng Việt");
+    today();
+    if (typeof count === "function") count();
+  }
+  document.getElementById("lang").addEventListener("click", function(){
+    lang = lang === "vi" ? "en" : "vi";
+    try { localStorage.setItem("wb-lang", lang); } catch (e) {}
+    apply();
+  });
 
   // Nav: smooth scroll is CSS; highlight follows the section in view.
   var links = Array.prototype.slice.call(document.querySelectorAll(".nav-list a"));
@@ -324,7 +383,7 @@ section{scroll-margin-top:28px}
   });
 
   // Quick input: pick a kind, type, press + to add a note on the page.
-  var kind = "Deadline";
+  var kind = "deadline";
   var chips = document.querySelectorAll(".chip");
   chips.forEach(function(c){
     c.addEventListener("click", function(){
@@ -338,7 +397,7 @@ section{scroll-margin-top:28px}
     var input = document.getElementById("q"), text = input.value.trim();
     if (!text) { input.focus(); return; }
     var li = document.createElement("li"), tag = document.createElement("span"), body = document.createElement("span");
-    tag.className = "kind"; tag.textContent = kind; body.textContent = text;
+    tag.className = "kind"; tag.dataset.kind = kind; tag.textContent = KIND[lang][kind]; body.textContent = text;
     li.appendChild(tag); li.appendChild(body);
     document.getElementById("notes").prepend(li);
     input.value = "";
@@ -348,7 +407,7 @@ section{scroll-margin-top:28px}
   var checks = document.querySelectorAll("#todo .check");
   function count(){
     var done = document.querySelectorAll('#todo .check[aria-pressed="true"]').length;
-    document.getElementById("done-count").textContent = done + "/" + checks.length + " xong";
+    document.getElementById("done-count").textContent = done + "/" + checks.length + (lang === "vi" ? " xong" : " done");
   }
   checks.forEach(function(c){
     c.addEventListener("click", function(){
@@ -356,6 +415,7 @@ section{scroll-margin-top:28px}
       count();
     });
   });
+  apply();
 })();
 </script>
 </body>
