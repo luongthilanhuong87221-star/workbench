@@ -219,12 +219,11 @@ section{scroll-margin-top:28px}
     </section>
 
     <section id="chi-so">
-      <div class="sec-head"><h2 data-i18n="mTitle">Numbers I track</h2><span data-i18n="mSub">Today / target</span></div>
+      <div class="sec-head"><h2 data-i18n="mTitle">Numbers I track</h2><span data-i18n="mSub">Current / target</span></div>
       <div class="grid enter">
         <article class="card glass">
-          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><span data-i18n="mHours">Study hours today</span></div></div>
-          <div class="value empty" data-i18n="noData">No data yet</div>
-          <div class="bar"><i style="width:0"></i></div>
+          <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><span data-i18n="mHours">Study hours a day</span></div></div>
+          <div class="value">6 <small data-i18n="uHours">hours / day</small></div>
           <p class="card-note" data-i18n="mHoursN">Class time plus evening self-study.</p>
         </article>
         <article class="card glass">
@@ -235,15 +234,15 @@ section{scroll-margin-top:28px}
         </article>
         <article class="card glass">
           <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-book"/></svg></span><span data-i18n="mBook">Marketing reading</span></div></div>
-          <div class="value empty" data-i18n="noData">No data yet</div>
-          <div class="bar"><i style="width:0"></i></div>
-          <p class="card-note" data-i18n="mBookN">A little every night before bed.</p>
+          <div class="value">15 <small data-i18n="uBook">/ 20 pages a night</small></div>
+          <div class="bar"><i style="width:75%"></i></div>
+          <p class="card-note" data-i18n="mBookN">Every night before bed.</p>
         </article>
         <article class="card glass">
           <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-wallet"/></svg></span><span data-i18n="mSave">Savings</span></div></div>
-          <div class="value empty" data-i18n="noData">No data yet</div>
-          <div class="bar"><i style="width:0"></i></div>
-          <p class="card-note" data-i18n="mSaveN">Fewer bubble teas, more for the end-of-month trip.</p>
+          <div class="value">40% <small data-i18n="uSave">of monthly pay</small></div>
+          <div class="bar"><i style="width:40%"></i></div>
+          <p class="card-note" data-i18n="mSaveN">Put aside from what I earn at my part-time job each month.</p>
         </article>
       </div>
     </section>
@@ -262,11 +261,12 @@ section{scroll-margin-top:28px}
         </article>
         <article class="card glass" id="mon-hoc">
           <div class="card-top"><div class="card-title"><span class="ic"><svg class="i"><use href="#i-book"/></svg></span><span data-i18n="cTitle">Courses this semester</span></div></div>
-          <p class="card-note" data-i18n="cNote">Current courses, by priority.</p>
+          <p class="card-note" data-i18n="cNote">Courses I am taking this semester.</p>
           <ul class="items">
-            <li><span class="n">01</span><span data-i18n="c1">Principles of Marketing</span></li>
-            <li><span class="n">02</span><span data-i18n="c2">Consumer Behavior</span></li>
-            <li><span class="n">03</span><span data-i18n="c3">Applied Information and Communication Technology</span></li>
+            <li><span class="n">01</span><span data-i18n="c1">Production and Operations Management</span></li>
+            <li><span class="n">02</span><span data-i18n="c2">Thinking and Decision Making</span></li>
+            <li><span class="n">03</span><span data-i18n="c3">International Business</span></li>
+            <li><span class="n">04</span><span data-i18n="c4">Academic English</span></li>
           </ul>
         </article>
         <article class="card glass" id="so-thich">
@@ -299,16 +299,16 @@ section{scroll-margin-top:28px}
     intro:"Sinh viên <b>Marketing</b>, Trường Đại học Công Thương TP.HCM. Bật một playlist nhẹ nhàng, làm từng việc nhỏ thôi — cuối tuần còn hẹn đi chơi với bạn bè nữa mà.",
     qPh:"Ghi deadline · Ghi chi tiêu · Viết ý tưởng content", addAria:"Thêm", kindAria:"Loại ghi chú",
     chipDeadline:"Ghi deadline", chipSpend:"Ghi chi tiêu", chipIdea:"Viết ý tưởng content",
-    mTitle:"Chỉ số đang theo dõi", mSub:"Hôm nay / mục tiêu", noData:"Chưa có dữ liệu",
-    mHours:"Giờ học hôm nay", mHoursN:"Học trên lớp cộng tự học buổi tối.",
+    mTitle:"Chỉ số đang theo dõi", mSub:"Hiện tại / mục tiêu", noData:"Chưa có dữ liệu",
+    mHours:"Giờ học mỗi ngày", mHoursN:"Học trên lớp cộng tự học buổi tối.",
     mHw:"Bài tập đã nộp", mHwN:"Tính cả 2 bài thu hoạch khoá AI, hạn 07/11.",
-    mBook:"Sách Marketing", mBookN:"Mỗi tối đọc một ít trước khi ngủ.",
-    mSave:"Tiết kiệm", mSaveN:"Bớt trà sữa để dành tiền đi chơi cuối tháng.",
+    mBook:"Sách Marketing", mBookN:"Mỗi tối trước khi ngủ.",
+    mSave:"Tiết kiệm", mSaveN:"Để dành từ tiền đi làm thêm mỗi tháng.", uHours:"giờ / ngày", uBook:"/ 20 trang mỗi tối", uSave:"thu nhập mỗi tháng",
     wTitle:"Tuần này của mình", wSub:"Bấm ô vuông để đánh dấu xong",
     todoTitle:"Việc cần làm tuần này", todoNote:"Những việc phải xong trước Chủ nhật.", checkAria:"Đánh dấu xong",
     t1:"Nộp 2 bài thu hoạch khoá AI trước 20:00 thứ Bảy 07/11", t2:"Làm slide thuyết trình nhóm", t3:"Ôn bài giữa kỳ môn chuyên ngành",
-    cTitle:"Môn học kỳ này", cNote:"Các môn đang theo, xếp theo độ ưu tiên.",
-    c1:"Nguyên lý Marketing", c2:"Hành vi người tiêu dùng", c3:"Ứng dụng Công nghệ Thông tin và Truyền thông",
+    cTitle:"Môn học kỳ này", cNote:"Các môn mình đang học kỳ này.",
+    c1:"Quản trị sản xuất và vận hành", c2:"Tư duy và ra quyết định", c3:"Kinh doanh quốc tế", c4:"Tiếng Anh học thuật",
     hNote:"Những thứ giúp mình nạp lại năng lượng.",
     h1:"Playlist nghe trên đường đi học", h2:"Cà phê, đi chơi cuối tuần với bạn bè", h3:"Lưu lại ý tưởng content hay để học Marketing",
     dockAria:"Lối tắt", dSched:"Lịch học", dSchedN:"Xem lịch học tuần này", dDeadN:"Các bài sắp tới hạn nộp", dPlayN:"Mở nhạc để học tập trung"
